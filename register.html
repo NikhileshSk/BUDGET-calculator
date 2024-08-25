@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #388e3c;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-group .fa {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #388e3c;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #66bb6a;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+        }
+
+        .link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .link a {
+            color: #388e3c;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Register</h2>
+    <div class="input-group">
+        <label for="reg-username">Username</label>
+        <input type="text" id="reg-username" placeholder="e.g., johndoe">
+    </div>
+    <div class="input-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" placeholder="e.g., john@example.com">
+    </div>
+    <div class="input-group">
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" placeholder="Enter your password">
+    </div>
+    <button onclick="register()">Register</button>
+    <div class="link">
+        <p>Already have an account? <a href="index.html">Login here</a></p>
+    </div>
+</div>
+
+<script>
+    function register() {
+        const username = document.getElementById('reg-username').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const password = document.getElementById('reg-password').value.trim();
+
+        if (username && email && password) {
+            // Save user details to local storage (or handle registration logic)
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            
+            alert('Registration successful! Please log in.');
+            window.location.href = 'index.html'; // Redirect to login page
+        } else {
+            alert('Please fill out all fields.');
+        }
+    }
+</script>
+
+</body>
+</html>
